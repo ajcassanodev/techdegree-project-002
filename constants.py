@@ -1,4 +1,9 @@
-
+def clean_data():
+    for i in PLAYERS:
+        get_height = i['height']
+        height_split = get_height.split(" ")
+        i['height'] = int(height_split[0])
+        print(i)
 
 TEAMS = [
 'Panthers',
