@@ -1,3 +1,8 @@
+from types import new_class
+
+
+new_players_list = [{}]
+
 def clean_height():
     for i in PLAYERS:
         get_height = i['height']
@@ -16,10 +21,10 @@ def clean_xp():
     return i         
 
 def updated_players_list():
-    new_player_list = [{}]
+    new_list = [{}]
     for i in PLAYERS:
-        new_player_list.append(i)
-    return print(new_player_list)
+        new_list.append(i)
+    return new_list
 
 
 def num_players_team_calc():
@@ -30,6 +35,8 @@ def main():
     clean_height()
     clean_xp()
     updated_players_list()
+    new_players_list.append(updated_players_list())
+    print(new_players_list)
     num_players_team_calc()
 
 
