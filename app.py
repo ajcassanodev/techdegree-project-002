@@ -1,9 +1,4 @@
 import constants
 
-TEAMS = [
-    'Panthers',
-    'Bandits',
-    'Warriors',]
-
-print(constants.teams_list(TEAMS))
-    
+if __name__ == "__main__":
+    print(constants.TEAMS)

@@ -1,12 +1,3 @@
-def teams_list(team):
-    return team
-    
-if __name__ == "__main__":
-    TEAMS = [
-    'Panthers',
-    'Bandits',
-    'Warriors',]
-    print(teams_list(TEAMS))
 
 
 TEAMS = [
