@@ -3,7 +3,9 @@ def clean_height():
         get_height = i['height']
         height_split = get_height.split(" ")
         i['height'] = int(height_split[0])
-        print(i)
+    return i
+
+
 def clean_xp():
     for i in PLAYERS:
         get_xp = i['experience']
@@ -11,7 +13,25 @@ def clean_xp():
             i['experience'] = True
         else:
             i['experience'] = False
-        print(i)
+    return i         
+
+def updated_players_list():
+    new_player_list = [{}]
+    for i in PLAYERS:
+        new_player_list.append(i)
+    return print(new_player_list)
+
+
+def num_players_team_calc():
+    num_players_team = int(len(PLAYERS) / len(TEAMS))
+    print("number of players on each team should be {}".format(num_players_team))
+
+def main():
+    clean_height()
+    clean_xp()
+    updated_players_list()
+    num_players_team_calc()
+
 
 TEAMS = [
 'Panthers',
