@@ -1,8 +1,16 @@
-def clean_data():
+def clean_height():
     for i in PLAYERS:
         get_height = i['height']
         height_split = get_height.split(" ")
         i['height'] = int(height_split[0])
+        print(i)
+def clean_xp():
+    for i in PLAYERS:
+        get_xp = i['experience']
+        if i['experience'] == 'YES':
+            i['experience'] = True
+        else:
+            i['experience'] = False
         print(i)
 
 TEAMS = [
