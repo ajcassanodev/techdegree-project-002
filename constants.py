@@ -1,3 +1,4 @@
+from tkinter import N
 from types import new_class
 
 
@@ -46,6 +47,16 @@ def main():
     team_list()
     player_list()
     seperate_names()
+    while True:
+        print("BASKETBALL TEAM STATS TOOL\n\n")
+        print("----MENU----\n\n")
+        print("Here are your choices:\nA)  Display Team Stats\nB)  Quit\n\n")
+        main_choice = input("Enter an Option:  ")
+        if main_choice == "A":
+            print("\n\n1) Panthers\n2) Bandits\n3) Warriors\n\n")
+        else:
+            break
+
 
 def seperate_names():
     team_panthers = player_list_names[0:6]
