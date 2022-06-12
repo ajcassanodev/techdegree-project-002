@@ -2,6 +2,11 @@ from types import new_class
 
 
 new_players_list = [{}]
+team_players = []
+player_list_names = []
+team_panthers =  []
+team_bandits = []
+team_warriors = []
 
 def clean_height():
     for i in PLAYERS:
@@ -38,6 +43,27 @@ def main():
     new_players_list.append(updated_players_list())
     print(new_players_list)
     num_players_team_calc()
+    team_list()
+    player_list()
+    seperate_names()
+
+def seperate_names():
+    team_panthers = player_list_names[0:6]
+    team_bandits =  player_list_names[6:12]
+    team_warriors = player_list_names[12:18]
+    print(team_panthers)
+    print(team_bandits)
+    print(team_warriors)
+
+def team_list():
+    for i in TEAMS:
+        team_players.append(i)
+
+
+def player_list():
+    for i in PLAYERS:
+        names = i['name']
+        player_list_names.append(names)
 
 
 TEAMS = [
