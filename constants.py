@@ -2,7 +2,7 @@ from tkinter import N
 from types import new_class
 
 
-new_players_list = [{}]
+new_players_list = []
 team_players = []
 player_list_names = []
 team_panthers =  []
@@ -37,6 +37,50 @@ def num_players_team_calc():
     num_players_team = int(len(PLAYERS) / len(TEAMS))
     print("number of players on each team should be {}".format(num_players_team))
 
+def main_menu():
+    print("BASKETBALL TEAM STATS TOOL\n\n")
+    print("----MENU----\n\n")
+    print("Here are your choices:\nA)  Display Team Stats\nB)  Quit\n\n")
+    main_choice = input("Enter an Option:  ")
+    main_choice = main_choice.capitalize()
+    if main_choice == "A":
+        team_pick()
+    elif main_choice == "B":
+        print("Have a nice day!")
+    else:
+        print("invalid pick, please try again") 
+        main_menu()
+
+def team_pick():
+    while True:
+        print("\n\n1) Panthers\n2) Bandits\n3) Warriors\n4) Back to Main Menu\n\n")
+        team_pick = input("Enter an Option: " )
+        try:
+            team_pick = int(team_pick)
+            if team_pick  > 4 :
+                raise ValueError("invalid pick, please try again")
+            elif team_pick < 1:
+                raise ValueError("invalid pick,please try again ")
+        except ValueError as err:
+            print("oops {} ".format(err))
+        if team_pick == 1:
+            team_panthers_menu()
+        if team_pick == 2:
+            continue
+        if team_pick == 3:
+            continue
+        if team_pick == 4:
+            main_menu()
+
+
+def team_panthers_menu():
+    print("\n\nTeam: Panthers Stats")
+    print("--------------------")
+    print("Total players: {} \n\n".format(len(team_panthers)))
+    print("Players on Team:")
+    print(*team_panthers , sep=', ')
+    team_pick()
+
 def main():
     clean_height()
     clean_xp()
@@ -47,21 +91,13 @@ def main():
     team_list()
     player_list()
     seperate_names()
-    while True:
-        print("BASKETBALL TEAM STATS TOOL\n\n")
-        print("----MENU----\n\n")
-        print("Here are your choices:\nA)  Display Team Stats\nB)  Quit\n\n")
-        main_choice = input("Enter an Option:  ")
-        if main_choice == "A":
-            print("\n\n1) Panthers\n2) Bandits\n3) Warriors\n\n")
-        else:
-            break
-
+    main_menu()
+    
 
 def seperate_names():
-    team_panthers = player_list_names[0:6]
-    team_bandits =  player_list_names[6:12]
-    team_warriors = player_list_names[12:18]
+    team_panthers.extend(player_list_names[0:6])
+    team_bandits.append(player_list_names[6:12])
+    team_warriors.append(player_list_names[12:18])
     print(team_panthers)
     print(team_bandits)
     print(team_warriors)
