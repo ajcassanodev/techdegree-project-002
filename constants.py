@@ -35,7 +35,6 @@ def updated_players_list():
 
 def num_players_team_calc():
     num_players_team = int(len(PLAYERS) / len(TEAMS))
-    print("number of players on each team should be {}".format(num_players_team))
 
 def main_menu():
     print("BASKETBALL TEAM STATS TOOL\n\n")
@@ -53,7 +52,7 @@ def main_menu():
 
 def team_pick():
     while True:
-        print("\n\n1) Panthers\n2) Bandits\n3) Warriors\n4) Back to Main Menu\n\n")
+        print("\n\n1) Panthers\n2) Bandits\n3) Warriors\n4) Quit\n\n")
         team_pick = input("Enter an Option: " )
         try:
             team_pick = int(team_pick)
@@ -66,11 +65,12 @@ def team_pick():
         if team_pick == 1:
             team_panthers_menu()
         if team_pick == 2:
-            continue
+            team_bandits_menu()
         if team_pick == 3:
-            continue
+            team_warriors_menu()
         if team_pick == 4:
-            main_menu()
+            print("Have a great day!")
+            break
 
 
 def team_panthers_menu():
@@ -79,14 +79,29 @@ def team_panthers_menu():
     print("Total players: {} \n\n".format(len(team_panthers)))
     print("Players on Team:")
     print(*team_panthers , sep=', ')
-    team_pick()
+
+
+def team_bandits_menu():
+    print("\n\nTeam: Bandits Stats")
+    print("--------------------")
+    print("Total players: {} \n\n".format(len(team_bandits)))
+    print("Players on Team:")
+    print(*team_bandits , sep=', ')
+
+
+def team_warriors_menu():
+    print("\n\nTeam: Warriors Stats")
+    print("--------------------")
+    print("Total players: {} \n\n".format(len(team_warriors)))
+    print("Players on Team:")
+    print(*team_warriors , sep=', ')
+
 
 def main():
     clean_height()
     clean_xp()
     updated_players_list()
-    new_players_list.append(updated_players_list())
-    print(new_players_list)
+    new_players_list.extend(updated_players_list())
     num_players_team_calc()
     team_list()
     player_list()
@@ -96,11 +111,8 @@ def main():
 
 def seperate_names():
     team_panthers.extend(player_list_names[0:6])
-    team_bandits.append(player_list_names[6:12])
-    team_warriors.append(player_list_names[12:18])
-    print(team_panthers)
-    print(team_bandits)
-    print(team_warriors)
+    team_bandits.extend(player_list_names[6:12])
+    team_warriors.extend(player_list_names[12:18])
 
 def team_list():
     for i in TEAMS:
